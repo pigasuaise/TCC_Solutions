@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: sans-serif;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            text-decoration: underline;
+            text-decoration-color: #0e9e9c;
+            text-decoration-thickness: 3px;
+        }
+        .buttons {
+            background-color: #17BEBB;
+            border: none;
+            width: 100px;
+            height: 30px;
+            border-radius: 10px;
+        }
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            width: 80vh;
+            height: 80vh;
+            border-radius: 10px;
+            justify-content: space-between;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        #sendButton:hover {
+            background-color: #0e9e9c;
+        }
+        .AllInputs {
+            border: grey solid 1px;
+            border-radius: 10px;
+            height: 26px;
+            width: 100%;
+        }
+        .input-area {
+            display: flex;
+            gap: 10px;
+        }
+        .messages {
+            flex: 1;
+            overflow-y: auto;
+            border: 1px solid #0e9e9c;
+            border-radius: 010px;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chat</h1>
+    <div class="chat-container">
+        <div class="messages"></div>
+        <div class="input-area">
+            <input type="text" class="AllInputs" id="ChatInput">
+            <button class="buttons" id="sendButton"><b>Enviar</b></button>
+        </div>
+    </div>
+</body>
+</html>
