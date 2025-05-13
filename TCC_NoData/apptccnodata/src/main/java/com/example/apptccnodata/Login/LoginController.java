@@ -10,7 +10,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.apptccnodata.Configuration.UserData.Usuario;
 import com.example.apptccnodata.Login.Services.LoginService;
-import com.example.apptccnodata.SessionController.SessionController;
 
 import jakarta.servlet.http.HttpSession;
 

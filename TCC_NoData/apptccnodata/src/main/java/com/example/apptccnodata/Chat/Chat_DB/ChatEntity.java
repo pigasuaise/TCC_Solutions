@@ -1,9 +1,12 @@
 package com.example.apptccnodata.Chat.Chat_DB;
 
+import java.time.LocalDateTime;
+
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 import com.example.apptccnodata.Configuration.UserData.Usuario;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,31 +24,20 @@ public class ChatEntity {
     private Long id;
 
     @NotEmpty
+    @Column(columnDefinition = "TEXT")
     private String mensagem;
-
-    @NotEmpty
-    private String usuarioNome;
 
     @ManyToOne
     @JoinColumn(name="usuario_id", nullable = false)
-    private Usuario usuarioId;
+    private Usuario usuario;
 
-    public ChatEntity(){}
-
-    public ChatEntity(String mensagem, Usuario usuarioId) {
+    public ChatEntity(String mensagem, Usuario usuario) {
         this.mensagem = mensagem;
-        this.usuarioId = usuarioId;
+        this.usuario = usuario;
     }
 
     public Long getId() {
         return id;
-    }
-    public String getUsuario() {
-        return usuarioNome;
-    }
-
-    public void setUsuario(String usuarioNome) {
-        this.usuarioNome = usuarioNome;
     }
 
     public String getMensagem() {
@@ -55,4 +47,13 @@ public class ChatEntity {
     public void setMensagem(String mensagem) {
         this.mensagem = mensagem;
     }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
 }

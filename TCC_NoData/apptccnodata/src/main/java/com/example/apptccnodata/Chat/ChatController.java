@@ -21,7 +21,7 @@ public class ChatController {
     private SessionController sController;
 
     @Autowired
-    private ChatRepository cr;
+    private ChatRepository chatRepository;
 
     @GetMapping("/chat")
     public String showChat(HttpSession session) {
@@ -37,12 +37,11 @@ public class ChatController {
         //TODO: process POST request
         Usuario usuario = sController.getLoggedUser();
 
-        if (usuario != null) {
-            System.out.println(usuario.getNome() + ": " + mensagem);
-        } else {
-            System.out.println("Usuario não foi encontrado!");
-        }
-        
+        ChatEntity novaMensagem = new ChatEntity(mensagem, usuario);
+        chatRepository.save(novaMensagem);
+
+        System.out.println(usuario.getNome() + ": " + mensagem + " // Foi salvo no banco de dados!");
+
         return "redirect:/chat";
     }
     
