@@ -64,8 +64,10 @@
     <div class="chat-container">
         <div class="messages"></div>
         <div class="input-area">
-            <input type="text" class="AllInputs" id="ChatInput">
-            <button class="buttons" id="sendButton"><b>Enviar</b></button>
+            <form action="/enviarMensagem" method="post">
+                <input type="text" class="AllInputs" id="ChatInput" name="mensagem">
+                <input type="submit" value="Enviar" class="buttons">
+            </form>
         </div>
     </div>
 </body>
