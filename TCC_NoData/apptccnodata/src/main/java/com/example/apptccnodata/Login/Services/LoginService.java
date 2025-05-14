@@ -10,6 +10,7 @@ import com.example.apptccnodata.Configuration.UserData.UsuarioRepository;
 @Service
 public class LoginService {
 
+    @Autowired
     private final UsuarioRepository usuarioRepository;
     private final PasswordEncoder passwordEncoder;
 
