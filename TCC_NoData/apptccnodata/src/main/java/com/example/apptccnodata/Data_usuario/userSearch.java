@@ -6,20 +6,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.example.apptccnodata.Configuration.UserData.Usuario;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @Controller
-public class userSearch {  // Nome de classe em PascalCase
+public class userSearch {
 
     private final userSearchService userSearchService;
 
-    // Injeção de dependência via construtor
     public userSearch(userSearchService userSearchService) {
         this.userSearchService = userSearchService;
     }
 
     @GetMapping("/usuarioData")
     public String showPage() {
-        return "usuarioData";  // Removida a barra inicial
+        return "usuarioData";
     }
 
     @PostMapping("/procurarEmail")
@@ -34,7 +35,14 @@ public class userSearch {  // Nome de classe em PascalCase
             return usuario;
         } else {
             System.out.println("Nenhum usuário encontrado!");
-            return null;  // Ou lance uma exceção apropriada
+            return null;
         }
     }
+
+    @PostMapping("/procurarMensagem")
+    public String mostrarMensagensPorId(@RequestParam String id) {
+        System.out.println(id);
+        return "/index";
+    }
+    
 }
