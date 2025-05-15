@@ -16,7 +16,7 @@ public class InitialDashboard {
     @GetMapping
     public String showDashboard(HttpSession session, Model model) {
         Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
-        if (usuario == null) {
+        if (usuario == null) { // Validando se o usuário é nulo, caso sim -> Negar o acesso.
             return "redirect:/login?error=unauthorized";
         } 
         
