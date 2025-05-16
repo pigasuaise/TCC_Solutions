@@ -8,11 +8,12 @@ import jakarta.persistence.Id;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 
-// Apenas a classe para conectar com o banco de dados, adicionar, remover, alterar e etc... No banco de dados.
+/*
+ * Classe para criar os campos das tabelas no banco de dados.
+ */
 @Entity
 public class Usuario {
     @Id
-    // @GeneratedValue(strategy = GenerationType.IDENTITY)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -56,6 +57,4 @@ public class Usuario {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-
-    
 }

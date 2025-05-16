@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.example.apptccnodata.Configuration.UserData.Usuario;
-import org.springframework.web.bind.annotation.RequestBody;
 
 
 @Controller
@@ -23,6 +22,12 @@ public class userSearch {
         return "usuarioData";
     }
 
+    /*
+     * Nesta classe, como é definida como um tipo de dado é necessário um retorno
+     * 
+     * O único problema disso é que não posso utiliza-la aqui, então em teoria seria mais fácil criar
+     * uma classe, controlada pelo Spring, para retornar usuario como um tipo de dado.
+     */
     @PostMapping("/procurarEmail")
     @ResponseBody  // Para retornar o objeto diretamente como JSON
     public Usuario mostrarUsuariosPorEmail(@RequestParam String email) {
@@ -38,7 +43,12 @@ public class userSearch {
             return null;
         }
     }
-
+    /*
+     * Aqui é o método principal dessa classe, basicamente se iniciou com a ideia de buscar as mensagens pelo id do usuario
+     * 
+     * Buscar as mensagens por id pode ser um problema meio complexo de se resolver, mas é necessário resolver isso antes de iniciar
+     * o chat de fato, pois o chat é basicamente: Form -> Back-end -> SQL -> Back-end -> HTML Page.
+     */
     @PostMapping("/procurarMensagem")
     public String mostrarMensagensPorId(@RequestParam String id) {
         System.out.println(id);
