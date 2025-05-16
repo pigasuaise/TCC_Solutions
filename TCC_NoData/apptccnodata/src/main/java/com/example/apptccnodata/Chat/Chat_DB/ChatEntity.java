@@ -12,6 +12,17 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotEmpty;
 
+/*
+ * Classe para criar os campos do banco de dados.
+ * 
+ * Nesta classe existe uma joint, é necessário fazer isso para coletar o id do usuario que mandou a mensagem
+ * um exemplo de uso seria para consultar algo dentro do banco de dados
+ * 
+ * Por mais que não exista a necessidade de utilizar isso, ainda seria preciso definir quem é o remetente e o destinatário
+ * No momento esta classe é utilizada para consultas, mas futuramente para linkar usuario para cada chat
+ * 
+ * Comunicação de A -> B e B <- A.
+ */
 @Entity
 @Table(name="mensagens")
 public class ChatEntity {
